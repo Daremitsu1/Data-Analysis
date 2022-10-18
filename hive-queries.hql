@@ -1,0 +1,15 @@
+create database trial;;
+show databases;
+use trial;
+create table fb(id int, age int, day int, year int, month int, gender string, tenure int, friends int, friend_init int, likes int, likes_recd int, mlikes int, mlikes_recd int, wlikes int, wlikes_recd int) row field delimited fields terminated by ',' stored as textfile location '/user/aviparnabiswas/facebookdata';
+select * from fb limit 10;
+select count(*) from fb;
+select count(*) from fb where age>25;
+select avg(friends) from fb where gender='male';
+select avg(friends) from fb where gender='female';
+select gender, avg(friends) from fb group by gender;
+select avg(likes_recd) from fb where age>=13 and age<=25;
+select avg(likes_recd) from fb where age>=35;
+select month, count(*) from fb group by month;
+select avg(mlikes) from fb where age>=13 and age<=25;
+select avg(mlikes), avg(wlikes) from fb where age>=13 and age<=25;
